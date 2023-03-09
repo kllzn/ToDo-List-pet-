@@ -1,0 +1,136 @@
+/* common */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira sans", sans-serif;
+}
+body {
+  color: #fff;
+  background-color: #384152;
+  min-height: 100vh;
+}
+
+input,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* header*/
+
+header {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #525a6c;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
+.add-task__form {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.add-task__form input {
+  flex: 1 1 0%;
+  padding: 1rem;
+  background-color: #1f2937;
+  margin-right: 1rem;
+  border-radius: 1rem;
+  color: #eee;
+  font-size: 1.25rem;
+}
+
+.add-task__form input::placeholder {
+  color: #6b7280;
+}
+
+.add-task__form button {
+  font-size: 1.25rem;
+  cursor: pointer;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #ec4899, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: opacity 0.4s ease;
+}
+
+.add-task__form button:hover {
+  opacity: 0.8;
+}
+
+.add-task__form button:active {
+  opacity: 0.6;
+}
+
+/* tasks */
+
+.tasks {
+  padding: 2rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tasks p {
+  opacity: 0.5;
+  padding: 0.7rem 0;
+}
+
+.task {
+  margin-top: 1rem;
+  display: flex;
+  flex: 1 1 0%;
+  background-color: #1f2937;
+  border-radius: 1rem;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+}
+
+.content {
+  display: flex;
+  flex: 1 1 0%;
+}
+
+.content input {
+  flex: 1 1 0%;
+
+  margin-right: 1rem;
+
+  color: #eee;
+}
+
+.actions button {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: opacity 0.4s ease;
+}
+
+.actions button:hover {
+  opacity: 0.8;
+}
+
+.actions button:active {
+  opacity: 0.6;
+}
+.actions .edit {
+  background-image: linear-gradient(to right, #ec4899, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.actions .delete {
+  color: crimson;
+}
