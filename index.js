@@ -1,7 +1,6 @@
 import Task from "./task-component.js";
 
 let todos = JSON.parse(localStorage.getItem("todos")) || [];
-console.log(todos);
 
 window.addEventListener("load", () => {
   const addTastForm = document.querySelector(".add-task__form");
@@ -16,6 +15,7 @@ window.addEventListener("load", () => {
 
     const todo = {
       text: e.target.elements.newTask.value,
+      done: false,
     };
     todos.push(todo);
 
@@ -56,9 +56,7 @@ function renderTodos() {
     });
 
     const editBtn = newTask.elem.querySelector(".edit");
-
-    const input = newTask.elem.querySelector("input");
-
+    const input = newTask.elem.querySelector(".task-text");
     editBtn.addEventListener("click", (e) => {
       if (editBtn.classList.contains("editing")) {
         editBtn.innerHTML = "Edit";
@@ -73,6 +71,24 @@ function renderTodos() {
         input.removeAttribute("readonly");
         editBtn.classList.add("editing");
       }
+    });
+
+    const checkbox = newTask.elem.querySelector(".task-check");
+    if (todo.done) {
+      checkbox.checked = true;
+      input.style.textDecoration = "line-through";
+    }
+
+    checkbox.addEventListener("change", (e) => {
+      todo.done = e.target.checked;
+      localStorage.setItem("todos", JSON.stringify(todos));
+      if (todo.done) {
+        checkbox.checked = true;
+        input.style.textDecoration = "line-through";
+      } else {
+        checkbox.checked = false;
+      }
+      renderTodos();
     });
   });
 }

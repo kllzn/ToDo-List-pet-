@@ -8,6 +8,7 @@ export default class Task {
   #template() {
     return `
     <div class="task">
+    <input type='checkbox' name='task-check' class='task-check'/>
     <div class="content">
       <input type="text" class='task-text' value="${this.text}" name="task-text" readonly />
     </div>
@@ -23,32 +24,5 @@ export default class Task {
     const wrapper = document.createElement("div");
     wrapper.innerHTML = this.#template();
     this.elem = wrapper.firstElementChild;
-  }
-
-  //   addDeleteEvent(todos, todo) {
-  //     const deleteBtn = this.elem.querySelector(".delete");
-
-  //     deleteBtn.addEventListener("click", (e) => {
-  //       todos = todos.filter((t) => t != todo);
-  //       localStorage.setItem("todos", JSON.stringify(todos));
-  //     });
-  //   }
-
-  addEditEvent() {
-    const editBtn = this.elem.querySelector(".edit");
-
-    const input = this.elem.querySelector("input");
-
-    editBtn.addEventListener("click", () => {
-      if (editBtn.classList.contains("editing")) {
-        editBtn.innerHTML = "Edit";
-        input.setAttribute("readonly", true);
-        editBtn.classList.remove("editing");
-      } else {
-        editBtn.innerHTML = "Confirm";
-        input.removeAttribute("readonly");
-        editBtn.classList.add("editing");
-      }
-    });
   }
 }
